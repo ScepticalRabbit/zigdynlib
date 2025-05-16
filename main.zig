@@ -8,7 +8,7 @@ pub fn main() !void {
     var dyn_lib = try std.DynLib.open(dyn_lib_path);
     defer dyn_lib.close();
 
-    const give = dyn_lib.lookup(
+    const giveBack = dyn_lib.lookup(
         *const fn (i32) i32,
         "giveBack",
     ) orelse return error.NoFunction;
@@ -25,8 +25,7 @@ pub fn main() !void {
 
     const a: i32 = 1;
     const b: i32 = 2;
-    print("Function give: {}\n",.{give});
-    print("Dynamic lib give: {d}\n",.{give(a)});
-    print("Dynamic lib add: 1+2={d}\n",.{addInts(a,b)});
-    print("Dynamic lib sub: 1-2={d}\n\n",.{subInts(a,b)});
+    print("Dynamic lib giveBack: {d}\n",.{giveBack(a)});
+    print("Dynamic lib addInts: 1+2={d}\n",.{addInts(a,b)});
+    print("Dynamic lib subInts: 1-2={d}\n\n",.{subInts(a,b)});
 }
