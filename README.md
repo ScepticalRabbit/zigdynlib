@@ -19,6 +19,8 @@ Dynamic lib sub: 1-2=-1
 
 I tried the zig 0.11 compiler and it gave the expected output so I expect the problem is in my `main.zig`.
 
+Update: Fixed by adding `callconv(.C)` to the function pointers.
+
 ## Checking against C++
 ```shell
 g++ -o main main.cpp -ldl

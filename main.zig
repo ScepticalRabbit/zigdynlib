@@ -9,17 +9,17 @@ pub fn main() !void {
     defer dyn_lib.close();
 
     const giveBack = dyn_lib.lookup(
-        *const fn (i32) i32,
+        *const fn (i32) callconv(.C) i32,
         "giveBack",
     ) orelse return error.NoFunction;
 
     const addInts = dyn_lib.lookup(
-        *const fn (i32,i32) i32,
+        *const fn (i32,i32) callconv(.C) i32,
         "addInts",
     ) orelse return error.NoFunction;
 
     const subInts = dyn_lib.lookup(
-        *const fn (i32,i32) i32,
+        *const fn (i32,i32) callconv(.C) i32,
         "subInts",
     ) orelse return error.NoFunction;
 
