@@ -17,9 +17,12 @@ Dynamic lib add: 1+2=3
 Dynamic lib sub: 1-2=-1
 ```
 
-## Checking against C
+I tried the zig 0.11 compiler and it gave the expected output so I expect the problem is in my `main.zig`.
+
+## Checking against C++
 ```shell
 g++ -o main main.cpp -ldl
+./main
 ```
 
 Output (as expected):
